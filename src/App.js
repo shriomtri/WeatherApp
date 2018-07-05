@@ -9,8 +9,11 @@ class App extends Component{
   render(){
 
     return (
-      <div className="container">
-          <h1>Hello,World!</h1>
+      <div className="container main card">
+        <div className="row">
+          <div className="col-md-6 titleColumn"></div>
+          <div className="col-md-6 searchColumn"></div>
+        </div>
       </div>
     );
 

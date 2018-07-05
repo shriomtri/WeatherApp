@@ -1,3 +1,35 @@
 body{
-  background-color: #e58f2d;
+  background-color: #3784c6;
+}
+
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 500px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: #000000;
+}
+
+.titleColumn{
+    height: 500px;
+    background-color: #FFFFFF;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: white;
+    background-image: url(https://octodex.github.com/images/maxtocat.gif);
+  }
+
+.searchColumn{
+  background-color: #f9d463;
+  padding-bottom: 10px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
