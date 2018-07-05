@@ -16,13 +16,18 @@ body{
 
 .titleColumn{
     height: 500px;
+    width: 100%;
     background-color: #FFFFFF;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 10px;
     color: white;
-    background-image: url(https://octodex.github.com/images/maxtocat.gif);
   }
+
+.title{
+  color: #000000;
+}
+
 
 .searchColumn{
   background-color: #f9d463;
@@ -32,4 +37,8 @@ body{
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+}
+
+.gifImg{
+  width: 100%;
 }
