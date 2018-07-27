@@ -17,21 +17,28 @@ function Title() {
 
 }
 
-//Search
-class Search extends Component {
-    constructor(props) {
-        super(props)
+// //Search by component
+// class Search extends Component {
+//     constructor(props) {
+//         super(props)
+//
+//     }
+//
+//     render() {
+//         return (
+//             <div>
+//                 <input type="text" className="search input-lg" placeholder="Username" onChange={this.props.onChange}/>
+//             </div>
+//         )
+//     }
+// }
 
-    }
-
-    render() {
-        return (
-            <div>
-                <input type="text" className="search input-lg" placeholder="Username" onChange={this.props.onChange}/>
-            </div>
-        )
-    }
-}
+//Search by variable
+const Search = (props)=>(
+    <div>
+        <input type="text" className="search input-lg" placeholder="Username" onChange={props.onChange}/>
+    </div>
+);
 
 
 class App extends Component {
@@ -39,21 +46,53 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: ""
+            username: "",
+            name: "",
+            avatarUrl: ""
         };
 
         this.handleOnChange = this.handleOnChange.bind(this)
 
     }
 
+    async getData(userName) {
+
+        let fetch = require("node-fetch");
+
+        let url = baseURL + userName;
+
+        let response = await fetch(url);
+        let data = await response.json();
+
+        let name = data.login;
+
+        if(name) {
+
+            this.setState({
+                username: data.login,
+                name: data.name,
+                avatarUrl: data.avatar_url
+            })
+
+        }else{
+
+            this.setState({
+                username: userName,
+                name: "No user exists",
+                avatarUrl: ""
+            })
+
+        }
+
+    }
+
+
     //getTheUserHandle
     handleOnChange(event) {
 
-        console.log("I am here");
-        let userHandle = event.target.value;
+        let userName = event.target.value;
 
-        this.setState({username: userHandle});
-        console.log(userHandle);
+        this.getData(userName)
 
     }
 
@@ -62,6 +101,7 @@ class App extends Component {
         return (
             <div className="container main card">
                 <div className="row">
+
                     <div className="col-md-6 titleColumn">
                         <Title/>
                     </div>
@@ -70,7 +110,13 @@ class App extends Component {
 
                         <Search onChange={this.handleOnChange}/>
 
-                        <h2>{this.state.username}</h2>
+                        <div className="userData" style={{margin: "10px",}}>
+
+                            {<p><h3>Name: </h3> {this.state.name} </p>}
+                            {<p><h3>Username: </h3> {this.state.username} </p>}
+                            {<p> <img className="userUrl" src={this.state.avatarUrl}/></p>}
+
+                        </div>
 
                     </div>
 

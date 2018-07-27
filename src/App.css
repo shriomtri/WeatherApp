@@ -43,8 +43,13 @@ body{
 }
 
 .gifImg{
-  width: 80%;
+  width: 60%;
   height: auto;
+}
+
+.userUrl{
+    width: 40%;
+    height:auto;
 }
 
 .myForm{
