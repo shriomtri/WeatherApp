@@ -4,9 +4,9 @@ const Output = (props) => (
 
     <div className="userData" style={{margin: "10px",}}>
 
-        {<p><h3>Name: </h3> {props.name} </p>}
-        {<p><h3>Username: </h3> {props.username} </p>}
-        {<p><img className="userUrl" src={props.avatarUrl} alt="User github avatar"/></p>}
+        {<div><h3>Name: </h3> <p>{props.name} </p></div>}
+        {<div><h3>Username: </h3> <p>{props.username} </p></div>}
+        {<div><img className="userUrl" src={props.avatarUrl} alt="User github avatar"/></div>}
 
     </div>
 

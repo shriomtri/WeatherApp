@@ -62,9 +62,9 @@ class App extends Component {
     handleOnChange(event) {
 
 
-        let userName = event.target.value;
+        let userName = event.target.value
 
-        clearTimeout(timeout);
+        clearTimeout(timeout)
 
         timeout = setTimeout(this.handleOnSearch(userName), 1000)
 
